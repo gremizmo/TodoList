@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\V1\Auth;
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
@@ -23,9 +24,9 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function me(): JsonResponse
+    public function me(): UserResource
     {
-        return response()->json(auth()->user());
+        return new UserResource(auth()->user());
     }
 
     public function logout(): JsonResponse

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\V1\Auth\AuthController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\UserResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,8 @@ Route::prefix('v1')->namespace('V1')->group(function () {
         Route::post('refresh', [AuthController::class, 'refresh']);
         Route::post('me', [AuthController::class, 'me']);
     });
+});
+
+Route::get('/users', function () {
+    return UserResource::collection(User::paginate(10));
 });
