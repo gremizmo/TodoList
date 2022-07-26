@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\V1\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Services\UserService;
 use App\Http\Requests\UserRequest;
+use App\Http\Services\UserService;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Throwable;
 
 class UserController extends Controller
 {
